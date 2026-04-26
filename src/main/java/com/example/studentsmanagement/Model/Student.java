@@ -9,6 +9,6 @@ public class Student {
     private String id;
     private String name;
     private int age;
-    private double degree;
+    private String degree;
     private double GPA;
 }
