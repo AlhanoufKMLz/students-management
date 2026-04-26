@@ -74,17 +74,20 @@ public class StudentController {
         Map<Student, String> result = new HashMap<>();
         for(Student s: students){
             if(s.getGPA() >= 4.75)
-                result.put(s, "First honor");
+                result.put(s, " * First honor");
             else if(s.getGPA() >= 4.25)
-                result.put(s, "Second honor");
+                result.put(s, " * Second honor");
             else
-                result.put(s, "Regular student");
+                result.put(s, " * Regular student");
         }
         return result;
     }
 
     @GetMapping("/get/greater/average")
     public ArrayList<Student> StudentsGreaterThanAverage(){
+        if(students.isEmpty())
+            return new ArrayList<>();
+
         double total = 0;
         for(Student s: students){
             total += s.getGPA();
