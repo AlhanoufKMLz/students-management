@@ -5,6 +5,8 @@ import com.example.studentsmanagement.Model.Student;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/student")
@@ -52,6 +54,19 @@ public class StudentController {
 
 
     //EXTRA ENDPOINTS
+    @GetMapping("/get/honor/gategory")
+    public Map<Student, String> categoriesStudents(){
+        Map<Student, String> result = new HashMap<>();
+        for(Student s: students){
+            if(s.getGPA() >= 4.75)
+                result.put(s, "First honor");
+            else if(s.getGPA() >= 4.25)
+                result.put(s, "Second honor");
+            else
+                result.put(s, "Regular student");
+        }
+        return result;
+    }
 
     @GetMapping("/get/greater/average")
     public ArrayList<Student> StudentsGreaterThanAverage(){
