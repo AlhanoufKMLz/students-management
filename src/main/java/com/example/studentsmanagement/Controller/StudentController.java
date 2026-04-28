@@ -33,7 +33,7 @@ public class StudentController {
         return new ApiResponse("Student added successfully.");
     }
 
-    @GetMapping("/get/all")
+    @GetMapping("/get-all")
     public ArrayList<Student> getAllStudents(){
         return students;
     }
@@ -69,7 +69,7 @@ public class StudentController {
 
 
     //EXTRA ENDPOINTS
-    @GetMapping("/get/honor/category")
+    @GetMapping("/get-honor-category")
     public Map<Student, String> categoriesStudents(){
         Map<Student, String> result = new HashMap<>();
         for(Student s: students){
@@ -83,7 +83,7 @@ public class StudentController {
         return result;
     }
 
-    @GetMapping("/get/greater/average")
+    @GetMapping("/get-greater-average")
     public ArrayList<Student> StudentsGreaterThanAverage(){
         if(students.isEmpty())
             return new ArrayList<>();
